@@ -62,8 +62,8 @@ header form #header-url {
 }
 
 header form #header-submit {
-    background-color: #EB4D16;
-    border-color: #EB4D16;
+    background-color: #EE6123;
+    border-color: #EE6123;
     color: #FFF;
     width: 100px;
     cursor: pointer;
@@ -88,7 +88,7 @@ main {
 }
 
 main h2 {
-    color: #EB4D16;
+    color: #EE6123;
     text-transform: uppercase;
     text-align: center;
     padding: 20px 0;
@@ -128,7 +128,7 @@ footer img {
 @media screen and (max-width: 1190px) {
 
     /*media header*/
-    
+
     header {
         background-image: url('../images/hello.jpg');
         background-size: cover;
