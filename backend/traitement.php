@@ -2,6 +2,34 @@
 
 require 'database.php';
 
+if(isset($_GET['q'])) {
+
+    $shortcut = htmlspecialchars($_GET['q']);
+
+    $datas = $bdd->prepare('SELECT COUNT(*) AS links FROM bitly WHERE shortcut = ?');
+    $datas->execute(array($shortcut));
+
+    while($data = $datas->fetch()) {
+        
+        if($data['links'] != 1) {
+         
+            header("Location: ./?error=true&&message=erreur: Adresse url non connue");
+            exit();
+        }
+    }
+
+    $datas->closeCursor();
+
+    $datas = $bdd->prepare('SELECT * FROM bitly WHERE shortcut = ?');
+    $datas->execute(array($shortcut));
+
+    while($data = $datas->fetch()) {
+
+        header('location: ' . $data['url']);
+        exit();
+    }
+}
+
 if(isset($_POST['url'])) {
 
     $url = $_POST['url'];
@@ -35,3 +63,4 @@ if(isset($_POST['url'])) {
 
     $datas->closeCursor();
 } 
+

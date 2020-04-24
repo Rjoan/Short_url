@@ -35,11 +35,14 @@ require './backend/traitement.php';
                     <p><? echo $_GET['message'] ?></p>    
                 </div>
 
-        <?php } ?>
+        <?php } else if(isset($_GET['short'])) { ?>
 
         <div id="header-last-div">
-            <p>url raccourcie : http://localhost/q=<?= htmlspecialchars($_GET['short']); ?></p>
+            <p>url raccourcie : http://localhost/?q=<?= htmlspecialchars($_GET['short']); ?></p>
         </div>
+
+        <?php } ?>
+
     </header>
 
     <main>
