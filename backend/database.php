@@ -9,4 +9,3 @@ try {
     die('Erreur à la connexion à la base de donnée '. $e->getMessage());
 
 }
-

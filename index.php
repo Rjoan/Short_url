@@ -1,6 +1,7 @@
 <?php
 require './backend/database.php';
 require './backend/traitement.php';
+
 ?>
 
 <!DOCTYPE html>
@@ -31,13 +32,13 @@ require './backend/traitement.php';
             if(isset($_GET['error']) && isset($_GET['message'])) { ?>
 
                 <div id="header-error">
-                    <p><? echo "Erreur: Url non valide"; ?></p>    
+                    <p><? echo $_GET['message'] ?></p>    
                 </div>
 
         <?php } ?>
 
         <div id="header-last-div">
-            <p>url raccourcie :</p>
+            <p>url raccourcie : http://localhost/q=<?= htmlspecialchars($_GET['short']); ?></p>
         </div>
     </header>
 
