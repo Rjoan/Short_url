@@ -1,3 +1,8 @@
+<?php
+require './backend/database.php';
+require './backend/traitement.php';
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -18,9 +23,18 @@
         </div>
 
         <form action="#" method="post">
-            <input id="header-url" type="url" name="url" placeholder="Coller un lien à raccourcir...">
+            <input id="header-url" type="text" name="url" placeholder="Coller un lien à raccourcir...">
             <input id="header-submit" type="submit" value="Raccourcir">
         </form>
+
+        <?php
+            if(isset($_GET['error']) && isset($_GET['message'])) { ?>
+
+                <div id="header-error">
+                    <p><? echo "Erreur: Url non valide"; ?></p>    
+                </div>
+
+        <?php } ?>
 
         <div id="header-last-div">
             <p>url raccourcie :</p>
