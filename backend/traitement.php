@@ -55,7 +55,7 @@ if(isset($_POST['url'])) {
 
     $datas->closeCursor();
 
-    $datas = $bdd->prepare('INSERT INTO bitly(url, shortcut) VALUES(?,?)') or die(print_r($bdd->errorInfo()));
+    $datas = $bdd->prepare('INSERT INTO bitly(url, shortcut) VALUES(?,?)');
     $datas->execute(array($url, $shortcut));
 
     header("location: ./?short=".$shortcut."");
